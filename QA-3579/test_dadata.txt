@@ -1,0 +1,13 @@
+let json = pm.response.json().suggestions;
+json.forEach((item, index) => {
+    pm.test('В элементе ' + index + ' мужское имя ', function () {
+        pm.expect(item.data.gender).to.equal("MALE");
+    });
+    
+    
+});
+json.forEach((item, index) => {
+pm.test('Элемент ' + index + ' содержит ключ "name"', function () {
+        pm.expect(item.data).to.have.property("name");
+    });
+})
