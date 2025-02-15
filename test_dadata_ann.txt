@@ -1,0 +1,12 @@
+let json = pm.response.json().suggestions;
+let foundAnna = false; 
+let i;
+json.forEach((item, index) => {
+    if (item.data.name === "Анна") {
+        foundAnna = true;
+        i = index + 1
+    }
+});
+pm.test('Имя "Анна" присутствует в ответе под индексом ' + i, function () {
+    pm.expect(foundAnna).to.be.true;
+});
